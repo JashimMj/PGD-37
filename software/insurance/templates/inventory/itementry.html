@@ -7,10 +7,10 @@
 </header>
 
 {%for x in messages%}
-                            <div class="alert alert-danger" role="alert">
-                                {{x}}
-                            </div>
-                            {%endfor%}
+<div class="alert alert-danger" role="alert">
+    {{x}}
+</div>
+{%endfor%}
 <section class="dashboard-counts no-padding-bottom">
     <div class="col-lg-12">
         <div class="card">
@@ -30,11 +30,26 @@
             <div class="card-body">
                 <form action="{%url 'createuser'%}" method="post" enctype="multipart/form-data">
                     {%csrf_token%}
-                    <div class="form-group">
+                    <div class="row">
+                        <div class="form-group col-md-10"></div>
+                        <div class="form-group col-md-2"><button type="button" class="btn btn-outline-primary" id="add"><i class="fas fa-plus">Add</i></button></div>
+                    <div class="form-group col-md-8" id="itm">
                         <label class="form-control-label">Item Name</label>
-                        <input type="text" placeholder="Item Name" class="form-control" name="itemname">
+                        <input type="text" placeholder="Item Name" class="form-control" name="itemname" id="ito">
                     </div>
-
+                    <div class="form-group col-md-4" id="sel">
+                        <label class="form-control-label">Item Name</label>
+                        <div id="otm">
+                        <select class="custom-select" required>
+                            <option value="">Open this select menu</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                        </select>
+                        <div class="invalid-feedback">Example invalid custom select feedback</div>
+                    </div>
+                        </div>
+                        </div>
                     <div class="form-group">
                         <input type="submit" value="Signin" class="btn btn-primary">
                     </div>
@@ -45,9 +60,11 @@
 </section>
 <script>
 $(document).ready(function(){
-  $("button").click(function(){
-    $("p").clone().appendTo("body");
+  $("#add").click(function(){
+    $("#ito").clone().appendTo("#itm");
+    $("#otm").clone().appendTo("#sel");
   });
 });
+
 </script>
 {%endblock%}
