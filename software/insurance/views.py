@@ -76,7 +76,13 @@ def admindashboardV(request):
 
 def inventorydashboardV(request):
     return render(request,'inventory/Dashboard.html')
+
 def itemnameV(request):
+    if request.method=='POST':
+        itemnames=request.POST.getlist('itemname')
+        units=request.POST.getlist('unit')
+        for itemname in itemnames:
+            data=ItemEntryM.objects.create(Itemname=itemname,Unit=units)
     return render(request,'inventory/itementry.html')
 
 

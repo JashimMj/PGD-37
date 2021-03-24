@@ -20,6 +20,6 @@ class UserProfileM(models.Model):
 
 class ItemEntryM(models.Model):
     Itemname=models.CharField(max_length=255,null=True,blank=True)
-    unit=models.CharField(max_length=100,null=True,blank=True)
+    Unit=models.CharField(max_length=255,null=True,blank=True)
     objects=models.Manager()
 
