@@ -74,5 +74,9 @@ def DashboardV(request):
 def admindashboardV(request):
     return render(request,'admin/Dashboard.html')
 
+def inventorydashboardV(request):
+    return render(request,'inventory/Dashboard.html')
+def itemnameV(request):
+    return render(request,'inventory/itementry.html')
 
 

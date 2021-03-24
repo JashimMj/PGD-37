@@ -9,7 +9,9 @@ urlpatterns = [
     path('logout/', views.loguotV,name='logout'),
     path('dashboard/', views.DashboardV,name='Dashboard'),
     path('admin/dashboard/', views.admindashboardV,name='admindashboard'),
+    path('inventory/dashboard/', views.inventorydashboardV,name='inventorydashboard'),
     path('create/user/', views.createuserV,name='createuser'),
+    path('item/entry/', views.itemnameV,name='itementry'),
 
 
 
