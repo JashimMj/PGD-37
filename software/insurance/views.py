@@ -71,6 +71,8 @@ def createuserV(request):
 
 def DashboardV(request):
     return render(request,'pages/Dashboard.html')
+def admindashboardV(request):
+    return render(request,'admin/Dashboard.html')
 
 
 
