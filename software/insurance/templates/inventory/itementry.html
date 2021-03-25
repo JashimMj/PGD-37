@@ -28,7 +28,7 @@
                 <h3 class="h4">Item entry Form</h3>
             </div>
             <div class="card-body">
-                <form action="{%url 'itementry'%}" method="post" enctype="multipart/form-data">
+                <form action="{%url 'itementrysave'%}" method="post" enctype="multipart/form-data">
                     {%csrf_token%}
                     <div class="row">
                         <div class="form-group col-md-10"></div>
@@ -41,7 +41,7 @@
                         <label class="form-control-label">Unit Name</label>
                         <div id="otm">
                         <select class="custom-select" name="unit" required>
-                            <option value=""> select menu Unit Name</option>
+                            <option value="">Select menu Unit Name</option>
                             <option value="PCS">PCS</option>
                             <option value="BOX">BOX</option>
                             <option value="DOZEN">DOZEN</option>
@@ -52,7 +52,7 @@
                         </div>
                         </div>
                     <div class="form-group">
-                        <input type="submit" value="Signin" class="btn btn-primary">
+                        <input type="submit" value="Save" class="btn btn-primary">
                     </div>
                 </form>
             </div>
