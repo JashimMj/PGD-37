@@ -13,6 +13,9 @@ urlpatterns = [
     path('create/user/', views.createuserV,name='createuser'),
     path('item/entry/', views.itemnameV,name='itementry'),
     path('item/entry/save/', views.itemnameSaveV,name='itementrysave'),
+    path('item/entry/edit/<int:id>/', views.itemnameeditV,name='itementryedit'),
+    path('item/entry/update/<int:id>/', views.itemnameupdateV,name='itementryupdate'),
+    path('item/entry/delete/<int:id>/', views.itemnamedeleteV,name='itementrydelete'),
 
 
 

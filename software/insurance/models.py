@@ -23,3 +23,10 @@ class ItemEntryM(models.Model):
     Unit=models.CharField(max_length=255,null=True,blank=True)
     objects=models.Manager()
 
+class SupplierInfoM(models.Model):
+    Suppliername=models.CharField(max_length=255,null=True,blank=True)
+    Address=models.TextField(max_length=2000,null=True,blank=True)
+    Phone=models.CharField(max_length=100,null=True,blank=True)
+    Email=models.EmailField(max_length=100,null=True,blank=True)
+    objects=models.Manager()
+

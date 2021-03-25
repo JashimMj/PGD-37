@@ -28,20 +28,21 @@
                 <h3 class="h4">Item entry Form</h3>
             </div>
             <div class="card-body">
-                <form action="{%url 'itementrysave'%}" method="post" enctype="multipart/form-data">
+                {%for x in itemedit%}
+                <form action="{%url 'itementryupdate' x.id%}" method="post" enctype="multipart/form-data">
                     {%csrf_token%}
+
                     <div class="row">
-                        <div class="form-group col-md-10"></div>
-                        <div class="form-group col-md-2"><button type="button" class="btn btn-outline-primary" id="add"><i class="fas fa-plus">Add</i></button></div>
+
                     <div class="form-group col-md-8" id="itm">
                         <label class="form-control-label">Item Name</label>
-                        <input type="text" placeholder="Item Name" class="form-control" name="itemname" id="ito">
+                        <input type="text" placeholder="Item Name" class="form-control" name="itemname" id="ito" value="{{x.Itemname}}">
                     </div>
                     <div class="form-group col-md-4" id="sel">
                         <label class="form-control-label">Unit Name</label>
                         <div id="otm">
                         <select class="custom-select" name="unit" required>
-                            <option value="">Select menu Unit Name</option>
+                            <option value="{{x.Unit}}">{{x.Unit}}</option>
                             <option value="PCS">PCS</option>
                             <option value="BOX">BOX</option>
                             <option value="DOZEN">DOZEN</option>
@@ -52,9 +53,11 @@
                         </div>
                         </div>
                     <div class="form-group">
-                        <input type="submit" value="Save" class="btn btn-primary">
+                        <input type="submit" value="Update" class="btn btn-primary">
                     </div>
+
                 </form>
+                {%endfor%}
             </div>
         </div>
     </div>
@@ -91,7 +94,7 @@
                               <td>{{x.Itemname}}</td>
                               <td>{{x.Unit}}</td>
                               <td><a href="{%url 'itementryedit' x.id%}" class="btn btn-primary">Edit</a></td>
-                              <td><a href="" class="btn btn-danger">Delete</a></td>
+                              <td><a href="{%url 'itementrydelete' x.id%}" class="btn btn-danger">Delete</a></td>
                             </tr>
                           {%endfor%}
                           </tbody>

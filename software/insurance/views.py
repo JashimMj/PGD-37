@@ -78,8 +78,8 @@ def inventorydashboardV(request):
     return render(request,'inventory/Dashboard.html')
 
 def itemnameV(request):
-
-    return render(request,'inventory/itementry.html')
+    item=ItemEntryM.objects.all()
+    return render(request,'inventory/itementry.html',{'item':item})
 
 def itemnameSaveV(request):
     if request.method=='POST':
@@ -88,6 +88,31 @@ def itemnameSaveV(request):
         c=min([len(itemnames),len(units)])
         for i in range(c):
             data=ItemEntryM.objects.create(Itemname=itemnames[i],Unit=units[i])
+    return redirect('/item/entry/')
+
+def itemnameeditV(request,id=0):
+    item = ItemEntryM.objects.all()
+    if id !=0:
+        itemedit=ItemEntryM.objects.filter(pk=id)
+    return render(request, 'inventory/itementryedit.html',{'itemedit':itemedit,'item':item})
+
+def itemnameupdateV(request,id=0):
+    if id !=0:
+        if request.method=='POST':
+            itemnames = request.POST.get('itemname')
+            units = request.POST.get('unit')
+            update=ItemEntryM.objects.get(pk=id)
+            update.Itemname=itemnames
+            update.Unit=units
+            update.save()
+    return redirect('/item/entry/')
+
+def itemnamedeleteV(request,id=0):
+    if id !=0:
+        data = ItemEntryM.objects.get(pk=id)
+        data.delete()
+
+
     return redirect('/item/entry/')
 
 
