@@ -78,11 +78,16 @@ def inventorydashboardV(request):
     return render(request,'inventory/Dashboard.html')
 
 def itemnameV(request):
+
+    return render(request,'inventory/itementry.html')
+
+def itemnameSaveV(request):
     if request.method=='POST':
         itemnames=request.POST.getlist('itemname')
         units=request.POST.getlist('unit')
-        for itemname in itemnames:
-            data=ItemEntryM.objects.create(Itemname=itemname,Unit=units)
-    return render(request,'inventory/itementry.html')
+        c=min([len(itemnames),len(units)])
+        for i in range(c):
+            data=ItemEntryM.objects.create(Itemname=itemnames[i],Unit=units[i])
+    return redirect('/item/entry/')
 
 

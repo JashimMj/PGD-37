@@ -12,6 +12,7 @@ urlpatterns = [
     path('inventory/dashboard/', views.inventorydashboardV,name='inventorydashboard'),
     path('create/user/', views.createuserV,name='createuser'),
     path('item/entry/', views.itemnameV,name='itementry'),
+    path('item/entry/save/', views.itemnameSaveV,name='itementrysave'),
 
 
 
